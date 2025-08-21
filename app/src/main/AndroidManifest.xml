@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recyclerviews">
         <activity
-            android:name=".ViewPostActivity"
+            android:name=".ui.ViewPostActivity"
             android:exported="false" />
         <activity
-            android:name=".PostActivity"
+            android:name=".ui.PostActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"></activity>
     </application>
 

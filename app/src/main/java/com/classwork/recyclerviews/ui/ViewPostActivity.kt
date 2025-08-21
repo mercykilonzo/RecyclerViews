@@ -1,4 +1,4 @@
-package com.classwork.recyclerviews
+package com.classwork.recyclerviews.ui
 
 
 import android.os.Bundle
@@ -10,6 +10,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.classwork.recyclerviews.Comment
+import com.classwork.recyclerviews.R
+import com.classwork.recyclerviews.api.ApiClient
+import com.classwork.recyclerviews.api.ApiInterface
+import com.classwork.recyclerviews.model.Post
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,7 +53,7 @@ class ViewPostActivity : AppCompatActivity() {
         rvComments.adapter = commentsAdapter
 
         fetchPostById()
-        fetchComments()
+//        fetchComments()
     }
 
     fun displayPost(post: Post) {
@@ -79,21 +84,20 @@ class ViewPostActivity : AppCompatActivity() {
         })
     }
 
-    private fun fetchComments() {
-        val apiClient = ApiClient.buildApiClient(ApiInterface::class.java)
-        apiClient.getCommentsByPostId(postId).enqueue(object : Callback<List<Comment>> {
-            override fun onResponse(call: Call<List<Comment>>, response: Response<List<Comment>>) {
-                if (response.isSuccessful) {
-                    val comments = response.body() ?: listOf()
-                    commentsAdapter.comments = comments
-                    commentsAdapter.notifyDataSetChanged()
-                } else {
-                    Toast.makeText(this@ViewPostActivity, "Failed to load comments", Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun onFailure(call: Call<List<Comment>>, t: Throwable) {
-                Toast.makeText(this@ViewPostActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
+//    private fun fetchComments() {
+//        val apiClient = ApiClient.buildApiClient(ApiInterface::class.java)
+//        apiClient.getCommentsByPostId(postId).enqueue(object : Callback<List<Comment>> {
+//            override fun onResponse(call: Call<List<Comment>>, response: Response<List<Comment>>) {
+//                if (response.isSuccessful) {
+//                    val comments = response.body() ?: listOf()
+//                    commentsAdapter.comments = comments
+//                    commentsAdapter.notifyDataSetChanged()
+//                } else {
+//                    Toast.makeText(this@ViewPostActivity, "Failed to load comments", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//            override fun onFailure(call: Call<List<Comment>>, t: Throwable) {
+//                Toast.makeText(this@ViewPostActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+//            }
+//        })
     }
-}

@@ -1,4 +1,4 @@
-package com.classwork.recyclerviews
+package com.classwork.recyclerviews.ui
 
 import android.content.Context
 import android.content.Intent
@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.classwork.recyclerviews.R
+import com.classwork.recyclerviews.model.Post
 
 class PostRvAdapter(val context:Context,  var posts:List<Post>): RecyclerView.Adapter<PostViewHolder>() {
     override fun onCreateViewHolder(
@@ -21,7 +22,7 @@ class PostRvAdapter(val context:Context,  var posts:List<Post>): RecyclerView.Ad
     }
 
     override fun onBindViewHolder(
-        holder:PostViewHolder,
+        holder: PostViewHolder,
         position: Int
     ) {
         val currentPost = posts[position]

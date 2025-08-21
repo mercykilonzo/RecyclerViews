@@ -1,4 +1,4 @@
-package com.classwork.recyclerviews
+package com.classwork.recyclerviews.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

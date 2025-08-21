@@ -1,12 +1,11 @@
-package com.classwork.recyclerviews
+package com.classwork.recyclerviews.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.classwork.recyclerviews.R
 
 class NamesRvAdapter(val names: List<String>):RecyclerView.Adapter<NamesViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NamesViewHolder {

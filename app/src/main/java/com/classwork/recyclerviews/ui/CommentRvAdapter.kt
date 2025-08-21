@@ -1,4 +1,4 @@
-package com.classwork.recyclerviews
+package com.classwork.recyclerviews.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.classwork.recyclerviews.Comment
+import com.classwork.recyclerviews.R
 
 class CommentsRvAdapter(val context: Context, var comments: List<Comment>) : RecyclerView.Adapter<CommentsViewHolder>() {
 
