@@ -1,4 +1,4 @@
-package com.classwork.recyclerviews
+package com.classwork.recyclerviews.model
 
 data class Comment(
     val id: Int,

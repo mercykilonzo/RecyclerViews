@@ -1,7 +1,7 @@
 package com.classwork.recyclerviews.repository
 
 import com.classwork.recyclerviews.api.ApiClient
-import com.classwork.recyclerviews.api.ApiInterface
+import com.classwork.recyclerviews.model.ApiInterface
 import com.classwork.recyclerviews.model.Post
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -14,5 +14,12 @@ class PostRepository {
         return  withContext(Dispatchers.IO){
             retrofit.getPosts()
         }
+    }
+
+    suspend fun fetchPostById(postId: Int): Response<Post>{
+        return withContext(Dispatchers.IO){
+            retrofit.getPostById(postId)
+        }
+
     }
 }

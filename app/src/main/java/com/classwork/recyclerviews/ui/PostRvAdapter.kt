@@ -1,5 +1,7 @@
 package com.classwork.recyclerviews.ui
 
+import com.classwork.recyclerviews.R
+import com.classwork.recyclerviews.model.Post
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,27 +10,23 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.classwork.recyclerviews.R
-import com.classwork.recyclerviews.model.Post
 
-class PostRvAdapter(val context:Context,  var posts:List<Post>): RecyclerView.Adapter<PostViewHolder>() {
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): PostViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.post_list_item, parent, false)
+class PostRvAdapter(val context: Context, val posts: List<Post>): RecyclerView.Adapter<PostViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.post_list_item, parent, false)
         return PostViewHolder(itemView)
-
     }
 
-    override fun onBindViewHolder(
-        holder: PostViewHolder,
-        position: Int
-    ) {
+    override fun getItemCount(): Int {
+        return posts.size
+    }
+
+    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val currentPost = posts[position]
         holder.tvTitle.text = currentPost.title
         holder.tvBody.text = currentPost.body
-        holder.tvUserId.text = currentPost.userId.toString()
+        holder.tvUserID.text = currentPost.userId.toString()
         holder.cvPost.setOnClickListener{
             val intent = Intent(context, ViewPostActivity::class.java)
             intent.putExtra("POST_ID", currentPost.id)
@@ -36,15 +34,11 @@ class PostRvAdapter(val context:Context,  var posts:List<Post>): RecyclerView.Ad
             context.startActivity(intent)
 
         }
-
-    }
-    override fun getItemCount(): Int {
-        return posts.size
     }
 }
 class PostViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
     val tvBody = itemView.findViewById<TextView>(R.id.tvBody)
-    val tvUserId = itemView.findViewById<TextView>(R.id.tvUserID)
+    val tvUserID = itemView.findViewById<TextView>(R.id.tvUserID)
     val cvPost = itemView.findViewById<CardView>(R.id.cvPost)
 }

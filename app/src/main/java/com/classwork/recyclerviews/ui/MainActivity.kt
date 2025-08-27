@@ -22,12 +22,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
+    override fun onResume(){
         super.onResume()
         rvNames = findViewById(R.id.rvNames)
-        val names = listOf("Anne","Andrew","Ruby","James","Mercy","Thomas","linn","Berissa","Ada")
+        val names = listOf("Anne", "Thomas", "Andrew", "John","Emebet", "Eden", "Eyob", "Semhal"
+            , "Teklay", "Senait", "Elias", "Mercy", "Johnatan", "Angela", "Sarah", "Daniella")
         val namesAdapter = NamesRvAdapter(names)
-        rvNames.layoutManager = GridLayoutManager(this, 3)
+        rvNames.layoutManager = GridLayoutManager(this, 4)
         rvNames.adapter = namesAdapter
+
     }
+
+
 }
